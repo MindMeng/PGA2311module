@@ -13446,12 +13446,24 @@ manufacturer Siemens</description>
 <part name="SUPPLY1" library="supply2" deviceset="+5V" device="" value="D+5V"/>
 <part name="J3" library="con-amp" deviceset="MTA04-156" device=""/>
 <part name="U$1" library="MAU106" deviceset="MAU106" device=""/>
-<part name="R1" library="resistor" deviceset="R-US_" device="0411/15" value="1k"/>
-<part name="R2" library="resistor" deviceset="R-US_" device="0411/15" value="1k"/>
+<part name="R1" library="resistor" deviceset="R-US_" device="0411/15" value="2k"/>
+<part name="R2" library="resistor" deviceset="R-US_" device="0411/15" value="2k"/>
 <part name="C1" library="rcl" deviceset="CPOL-EU" device="E5-8.5" value="100uF"/>
 <part name="C2" library="rcl" deviceset="CPOL-EU" device="E5-8.5" value="100uF"/>
 <part name="L1" library="inductors" deviceset="82114R" device="" value="100uH"/>
 <part name="L2" library="inductors" deviceset="82114R" device="" value="100uH"/>
+<part name="P+3" library="supply1" deviceset="VCC" device="" value="A+5V"/>
+<part name="P-3" library="supply1" deviceset="-5V" device="" value="A-5V"/>
+<part name="C3" library="rcl" deviceset="C-EU" device="050-030X075" value="0.1uF"/>
+<part name="C4" library="rcl" deviceset="C-EU" device="050-030X075" value="0.1uF"/>
+<part name="SUPPLY2" library="supply2" deviceset="PE" device="" value="AGND"/>
+<part name="SUPPLY3" library="supply2" deviceset="PE" device="" value="AGND"/>
+<part name="C5" library="rcl" deviceset="C-EU" device="050-030X075" value="10uF"/>
+<part name="C6" library="rcl" deviceset="C-EU" device="050-030X075" value="10uF"/>
+<part name="C8" library="rcl" deviceset="CPOL-EU" device="E5-8.5" value="100uF"/>
+<part name="SUPPLY4" library="supply2" deviceset="+5V" device="" value="D+5V"/>
+<part name="SUPPLY5" library="supply2" deviceset="GND" device=""/>
+<part name="C9" library="rcl" deviceset="C-EU" device="050-030X075" value="10uF"/>
 </parts>
 <sheets>
 <sheet>
@@ -13492,6 +13504,18 @@ manufacturer Siemens</description>
 <instance part="C2" gate="G$1" x="15.24" y="137.16"/>
 <instance part="L1" gate="1" x="2.54" y="157.48" rot="R90"/>
 <instance part="L2" gate="1" x="2.54" y="121.92" rot="R90"/>
+<instance part="P+3" gate="VCC" x="83.82" y="129.54"/>
+<instance part="P-3" gate="1" x="127" y="109.22"/>
+<instance part="C3" gate="G$1" x="83.82" y="121.92"/>
+<instance part="C4" gate="G$1" x="106.68" y="121.92"/>
+<instance part="SUPPLY2" gate="PE" x="83.82" y="111.76"/>
+<instance part="SUPPLY3" gate="PE" x="106.68" y="111.76"/>
+<instance part="C5" gate="G$1" x="93.98" y="121.92"/>
+<instance part="C6" gate="G$1" x="116.84" y="121.92"/>
+<instance part="C8" gate="G$1" x="-43.18" y="142.24"/>
+<instance part="SUPPLY4" gate="+5V" x="-43.18" y="149.86"/>
+<instance part="SUPPLY5" gate="GND" x="-43.18" y="132.08"/>
+<instance part="C9" gate="G$1" x="68.58" y="119.38"/>
 </instances>
 <busses>
 </busses>
@@ -13517,6 +13541,9 @@ manufacturer Siemens</description>
 <segment>
 <pinref part="SUPPLY21" gate="GND" pin="GND"/>
 <pinref part="C7" gate="G$1" pin="2"/>
+<pinref part="C9" gate="G$1" pin="2"/>
+<wire x1="68.58" y1="114.3" x2="58.42" y2="114.3" width="0.1524" layer="91"/>
+<junction x="58.42" y="114.3"/>
 </segment>
 <segment>
 <pinref part="R7" gate="G$1" pin="2"/>
@@ -13527,6 +13554,11 @@ manufacturer Siemens</description>
 <pinref part="R8" gate="G$1" pin="2"/>
 <wire x1="-12.7" y1="66.04" x2="-12.7" y2="71.12" width="0.1524" layer="91"/>
 <junction x="-17.78" y="66.04"/>
+</segment>
+<segment>
+<pinref part="C8" gate="G$1" pin="-"/>
+<pinref part="SUPPLY5" gate="GND" pin="GND"/>
+<wire x1="-43.18" y1="137.16" x2="-43.18" y2="134.62" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="+5V" class="0">
@@ -13548,6 +13580,14 @@ manufacturer Siemens</description>
 <pinref part="C7" gate="G$1" pin="1"/>
 <pinref part="C7" gate="G$1" pin="1"/>
 <pinref part="SUPPLY1" gate="+5V" pin="+5V"/>
+<pinref part="C9" gate="G$1" pin="1"/>
+<wire x1="58.42" y1="121.92" x2="68.58" y2="121.92" width="0.1524" layer="91"/>
+<junction x="58.42" y="121.92"/>
+</segment>
+<segment>
+<pinref part="SUPPLY4" gate="+5V" pin="+5V"/>
+<pinref part="C8" gate="G$1" pin="+"/>
+<wire x1="-43.18" y1="147.32" x2="-43.18" y2="144.78" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="PE" class="0">
@@ -13578,6 +13618,22 @@ manufacturer Siemens</description>
 <wire x1="15.24" y1="139.7" x2="30.48" y2="139.7" width="0.1524" layer="91"/>
 <junction x="15.24" y="139.7"/>
 <pinref part="C1" gate="G$1" pin="-"/>
+</segment>
+<segment>
+<pinref part="C3" gate="G$1" pin="2"/>
+<pinref part="SUPPLY2" gate="PE" pin="PE"/>
+<wire x1="83.82" y1="116.84" x2="83.82" y2="114.3" width="0.1524" layer="91"/>
+<pinref part="C5" gate="G$1" pin="2"/>
+<wire x1="93.98" y1="116.84" x2="83.82" y2="116.84" width="0.1524" layer="91"/>
+<junction x="83.82" y="116.84"/>
+</segment>
+<segment>
+<pinref part="C4" gate="G$1" pin="2"/>
+<pinref part="SUPPLY3" gate="PE" pin="PE"/>
+<wire x1="106.68" y1="116.84" x2="106.68" y2="114.3" width="0.1524" layer="91"/>
+<pinref part="C6" gate="G$1" pin="2"/>
+<wire x1="106.68" y1="116.84" x2="116.84" y2="116.84" width="0.1524" layer="91"/>
+<junction x="106.68" y="116.84"/>
 </segment>
 </net>
 <net name="INPUT_R" class="0">
@@ -13622,6 +13678,14 @@ manufacturer Siemens</description>
 <pinref part="L1" gate="1" pin="2"/>
 <pinref part="P+1" gate="VCC" pin="VCC"/>
 </segment>
+<segment>
+<pinref part="P+3" gate="VCC" pin="VCC"/>
+<pinref part="C3" gate="G$1" pin="1"/>
+<wire x1="83.82" y1="127" x2="83.82" y2="124.46" width="0.1524" layer="91"/>
+<pinref part="C5" gate="G$1" pin="1"/>
+<wire x1="83.82" y1="124.46" x2="93.98" y2="124.46" width="0.1524" layer="91"/>
+<junction x="83.82" y="124.46"/>
+</segment>
 </net>
 <net name="-5V" class="0">
 <segment>
@@ -13632,6 +13696,17 @@ manufacturer Siemens</description>
 <segment>
 <pinref part="L2" gate="1" pin="1"/>
 <pinref part="P-2" gate="1" pin="-5V"/>
+</segment>
+<segment>
+<pinref part="C4" gate="G$1" pin="1"/>
+<wire x1="106.68" y1="124.46" x2="106.68" y2="127" width="0.1524" layer="91"/>
+<pinref part="P-3" gate="1" pin="-5V"/>
+<wire x1="106.68" y1="127" x2="116.84" y2="127" width="0.1524" layer="91"/>
+<wire x1="116.84" y1="127" x2="127" y2="127" width="0.1524" layer="91"/>
+<wire x1="127" y1="127" x2="127" y2="111.76" width="0.1524" layer="91"/>
+<pinref part="C6" gate="G$1" pin="1"/>
+<wire x1="116.84" y1="124.46" x2="116.84" y2="127" width="0.1524" layer="91"/>
+<junction x="116.84" y="127"/>
 </segment>
 </net>
 <net name="INPUT_L" class="0">
@@ -13699,6 +13774,7 @@ manufacturer Siemens</description>
 <wire x1="15.24" y1="149.86" x2="15.24" y2="147.32" width="0.1524" layer="91"/>
 <pinref part="L1" gate="1" pin="1"/>
 <junction x="2.54" y="149.86"/>
+<junction x="10.16" y="149.86"/>
 </segment>
 </net>
 <net name="N$2" class="0">
@@ -13713,6 +13789,7 @@ manufacturer Siemens</description>
 <wire x1="15.24" y1="129.54" x2="10.16" y2="129.54" width="0.1524" layer="91"/>
 <pinref part="L2" gate="1" pin="2"/>
 <junction x="2.54" y="129.54"/>
+<junction x="10.16" y="129.54"/>
 </segment>
 </net>
 </nets>
